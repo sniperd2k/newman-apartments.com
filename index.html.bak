@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+		<link href="css/galleria.css" rel="stylesheet" type="text/css" media="screen" />
+		<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="jquery.galleria.js"></script>
+		<script type="text/javascript" src="jquery.curvycorners.min.js"></script>
+		<script type="text/javascript" src="jquery.plugin.dropshadow.js"></script>
+		<script type="text/javascript">
+
+			$(function($) {
+				$('ul.gallery').galleria({
+					history   : true, // activates the history object for bookmarking, back-button etc.
+					clickNext : true, // helper for making the image clickable
+					insert    : '#main_image', // the containing selector for our main image
+					onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+						// fade in the image & caption
+						if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+							image.css('display','none').fadeIn(1000);
+						}
+						caption.css('display','none').fadeIn(600);
+						// fetch the thumbnail container
+						var _li = thumb.parents('li');
+
+						// fade out inactive thumbnail
+						_li.siblings().children('img.selected').fadeTo(500,0.3);
+
+						// fade in active thumbnail
+						thumb.fadeTo('fast',1).addClass('selected');
+
+						// add a title for the clickable image
+						image.attr('title','Next image >>');
+					},
+					onThumb : function(thumb) { // thumbnail effects goes here
+						// fetch the thumbnail container
+						var _li = thumb.parents('li');
+						// if thumbnail is active, fade all the way.
+						var _fadeTo = _li.is('.active') ? '1' : '0.3';
+						// fade in the thumbnail when finnished loading
+						thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1000);
+						// hover effects
+						thumb.hover(
+							function() { thumb.fadeTo('fast',1); },
+							function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+						)
+					}
+				});
+			});
+		</script>
+		<style media="screen,projection" type="text/css">
+			/* BEGIN DEMO STYLE */
+			.gallery li{width:80px;height:60px;border:3px double #111;margin: 0 2px;background:#000; float:left;}
+			.gallery {width:300px;}
+	  </style>
+		<title>Newman Apartments</title>
+		<meta name="description" content="Newman Apartments" />
+		<meta name="keywords" content="Newman Apartments Hudson New Hampshire NH" />
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-40545865-1', 'moodybeachmaine.com');
+			ga('send', 'pageview');
+		</script>
+	</head>
+	<body>
+		<div id="mainContainer" style="background-color:white;width:900px;margin:20px auto;border:4px solid #efefef;">
+			<div class="container_12" id="topContent">
+	    	<div class="grid_4">
+	      	<h1><a href="http://www.newman-apartments.com/">Newman</a></h1>
+	        <h2><a href="http://www.newman-apartments.com/">Apartments</a></h2>
+	    	</div>
+	    	<div class="grid_8" id="rightTopContent"></div>
+			</div>
+	    <div class="clear">&nbsp;</div>
+			<div class="container_12">
+				<div class="grid_4">
+	      	<ul class="gallery">
+						<li class="active"><img src="./images/1.jpg" title="View from the road" alt="1" /></li>
+	          <li><img src="./images/3.jpg" title="Front room" alt="2" /></li>
+	          <li><img src="./images/7.jpg" title="Kitchen" alt="3" /></li>
+	          <li><img src="./images/5.jpg" title="Kitchen" alt="4" /></li>
+	          <li><img src="./images/6.jpg" title="Kitchen" alt="5" /></li>
+	          <li><img src="./images/4.jpg" title="Bathroom" alt="6" /></li>
+	          
+			  <!---
+			  <li><img src="./images/4.jpg" title="West Upstairs Bedroom" alt="7" /></li>
+			  <li><img src="./images/8.jpg" title="Front Room/Fireplace" alt="8" /></li>
+	          <li><img src="./images/9.jpg" title="Low tide" alt="9" /></li>
+	          
+			  <li><img src="./images/10.jpg" title="Moody" alt="10" /></li>
+	          <li><img src="./images/11.jpg" title="Moody" alt="11" /></li>
+	          <li><img src="./images/12.jpg" title="Moody" alt="12" /></li>
+	          	--->
+					</ul>
+				</div>
+				<div class="grid_8">
+					<div id="main_image"></div>
+				</div>
+	    </div>
+	    <div class="clear">&nbsp;</div>
+	   	<div class="container_16" >
+	    	<div class="grid_2">
+					<p>&nbsp;</p>
+				</div>
+	      <div class="grid_12" id="galleryInformation" >
+			    <!--- edit below this line --->
+					<h2>8 Maple Ave - Hudson, NH</h2>
+	    		<p>Clean three room apartment including 1 sit down kitchen, 1 living room, and 1 large bedroom currently available.  Kitchen has full sized refrigerator and gas stove.  There are a good amount of cabinets, including a closet that is set up as a pantry.  The living room features a 4 window bay overlooking the yard and a cherry tree.   Laundry is available in the basement, as is additional storage space.</p>
+		      <h2>Rental Information</h2>
+					<ul>
+            <li>Occupancy is month to month tenant at will</li>
+            <li>Rent is $850 per month plus one month security deposit</li>
+            <li>Gas heat and electric our responsibility of tenant</li>
+            <li>Water and sewer bills are handled by landlord</li>
+            <li>No pets</li>
+            <li>No smoking</li>
+            <li>Quiet neighborhood mix of single and multi-family</li>
+            <li>Two off street parking spaces</li>
+					</ul>
+					<h2>Directions: <a href="https://www.google.com/maps/place/8+Maple+Ave,+Hudson,+NH+03051/@42.7616704,-71.4406987,17z/data=!3m1!4b1!4m2!3m1!1s0x89e3b1034383ab55:0xb9beacebd503168">Map</a></h2>
+					<p>Click <a href="https://www.google.com/maps/place/8+Maple+Ave,+Hudson,+NH+03051/@42.7616704,-71.4406987,17z/data=!3m1!4b1!4m2!3m1!1s0x89e3b1034383ab55:0xb9beacebd503168"><strong>here</strong></a> or from Nashua travel across the Merrimack River using route 111 (Ferry St.) into Hudson.  Once across the river take the first right onto Route 3A (Central St.).   Next take your first right onto Maple Ave.  The second house on your left is 8 Maple Ave.  The house is white with green shutters, and the apartment entrance is through the unscreened porch on the Maple Ave street side.</p>
+		      <h2>Contact Information</h2>
+					<p>
+						Owner: Ted Newman<br />
+						Land Line Phone: <a href="tel:508-393-0246">508-446-4806</a><br />
+						Cell Phone: <a href="tel:508-446-4806">508-446-4806</a><br />
+						Email: <a href="mailto:newman.ted@gmail.com">newman.ted@gmail.com</a><br />
+					</p>
+					<!--- edit above this line --->
+					<div id="footer"><a href="http://www.bryantsmith.com">web designer florida</a></div>
+				</div>
+				<div class="grid_2"><p>&nbsp;</p></div>
+	    </div>
+	    <br style="clear:both;clear:all" />
+	  </div>
+	  <script>
+	  	$('#mainContainer').corner();
+	  	$('h1').dropShadow();
+	 	</script>
+	</body>
+</html>
